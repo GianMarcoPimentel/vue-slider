@@ -15,7 +15,7 @@
     <script src="https://unpkg.com/vue@3"></script>
     <div id="app">
         <h1>
-           
+         
          </h1>
         <div class="container py-5">
             <div id="carousel">
@@ -35,6 +35,7 @@
                     :src="currentSlide.image" 
                     :alt="'Anteprima ' + (index + 1)"
                     @click="changeSlide(index ) "
+                    :class = "index == activeSlideIndex ? 'active' : '' "
                 >
             </div>
             
