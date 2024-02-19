@@ -15,7 +15,7 @@
     <script src="https://unpkg.com/vue@3"></script>
     <div id="app">
         <h1>
-            {{slides.text}}
+           
          </h1>
         <div class="container py-5">
             <div id="carousel">
@@ -31,7 +31,10 @@
                 
                 </div>
             <div id="thumblains">
-                
+                <img v-for="(currentSlide, index) in slides"
+                    :src="currentSlide.image" 
+                    :alt="'Anteprima ' + (index)"
+                    >
             </div>
             
         </div>
