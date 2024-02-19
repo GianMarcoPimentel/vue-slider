@@ -29,7 +29,7 @@ createApp({
              
             
             }
-
+ 
         },
     methods: {
         nextSlide(){
