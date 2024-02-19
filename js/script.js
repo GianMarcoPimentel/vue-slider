@@ -2,6 +2,9 @@ const { createApp } = Vue
 createApp({
     data(){
         return{
+            // memorizzo la slide attiva
+            activeSlideIndex : 0,
+
              slides : [
                     {
                         image: 'img/01.webp',
@@ -34,14 +37,14 @@ createApp({
     methods: {
         nextSlide(){
           this.activeSlideIndex ++ ;
-          if(this.activeSlideIndex >= this.movie.images.length){
+          if(this.activeSlideIndex >= this.slides.length){
               this.activeSlideIndex = 0;
           }
         },
         prevSlide(){
           this.activeSlideIndex -- ;
           if(this.activeSlideIndex < 0 ){
-              this.activeSlideIndex = this.movie.images.length -1;
+              this.activeSlideIndex = this.slides.length -1;
           }
         },
         changeSlide(){
