@@ -29,12 +29,13 @@
                     <i @click="nextSlide()" class="fa-solid fa-arrow-right"></i>
                 </div>
                 
-                </div>
+            </div>
             <div id="thumblains">
                 <img v-for="(currentSlide, index) in slides"
                     :src="currentSlide.image" 
-                    :alt="'Anteprima ' + (index)"
-                    >
+                    :alt="'Anteprima ' + (index + 1)"
+                    @click="changeSlide(index ) "
+                >
             </div>
             
         </div>

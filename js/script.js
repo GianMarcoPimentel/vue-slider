@@ -47,8 +47,11 @@ createApp({
               this.activeSlideIndex = this.slides.length -1;
           }
         },
-        changeSlide(){
-          this.activeSlideIndex = index ;//passare numero dell'immagine
-        },
+        changeSlide(index){
+        //passare numero dell'immagine
+            console.log(index);
+            this.activeSlideIndex = index ;
+
+    },
       },
   }).mount('#app');
