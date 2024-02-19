@@ -52,6 +52,7 @@ createApp({
             console.log(index);
             this.activeSlideIndex = index ;
 
-    },
+       },
+        
       },
   }).mount('#app');
