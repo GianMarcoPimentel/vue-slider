@@ -14,29 +14,47 @@
 <body>
     <script src="https://unpkg.com/vue@3"></script>
     <div id="app">
-        <h1>
+      
          
-         </h1>
         <div class="container py-5">
-            <div id="carousel">
-                <img v-for="(currentSlide, index) in slides"
-                 :src= 'currentSlide.image'
-                 :alt="'Immagine ' + (index + 1)"
-                 v-show = "index == activeSlideIndex"
-                 >
-                 <div id="arrows">
-                    <i @click="prevSlide()" class="fa-solid fa-arrow-left"></i>
-                    <i @click="nextSlide()" class="fa-solid fa-arrow-right"></i>
+            <div class="container">
+
+                <div class="row" style="height: 500px;">
+                    <div class="col-8" id="carousel">
+
+                        <img v-for="(currentSlide, index) in slides"
+                         :src= 'currentSlide.image'
+                         :alt="'Immagine ' + (index + 1)"
+                         v-show = "index == activeSlideIndex"
+                         >
+                         <h3 v-for="(actualSlide, index) in slides"
+                         :class="slides[activeSlideIndex].title"
+                         v-show = "index == activeSlideIndex"
+                         >
+                            {{slides[activeSlideIndex].title}}
+                         </h3>
+                         <p v-for="(currentSlide, index) in slides" 
+                            :class="slides[activeSlideIndex].text"
+                            v-show = "index == activeSlideIndex"
+                         >
+                            {{slides[activeSlideIndex].text}} 
+                        </p>
+                         
+                         <div id="arrows">
+                            <i @click="prevSlide()" class="fa-solid fa-arrow-left"></i>
+                            <i @click="nextSlide()" class="fa-solid fa-arrow-right"></i>
+                        </div>
+                   
+                    </div>
+                    <div class="col-4" id="thumblains">
+                        <img v-for="(currentSlide, index) in slides"
+                            :src="currentSlide.image" 
+                            :alt="'Anteprima ' + (index + 1)"
+                            @click="changeSlide(index ) "
+                            :class = "index == activeSlideIndex ? 'active' : '' "
+                        >
+                    </div>
                 </div>
-                
-            </div>
-            <div id="thumblains">
-                <img v-for="(currentSlide, index) in slides"
-                    :src="currentSlide.image" 
-                    :alt="'Anteprima ' + (index + 1)"
-                    @click="changeSlide(index ) "
-                    :class = "index == activeSlideIndex ? 'active' : '' "
-                >
             </div>
             
         </div>
