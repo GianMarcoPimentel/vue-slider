@@ -29,14 +29,14 @@ createApp({
                     }
                 ],
                 
-             
+             autoplayTimer : 0,
             
             }
  
         },
     methods: {
         nextSlide(){
-          this.activeSlideIndex ++ ;
+          this.activeSlideIndex ++ ; // this permette di andare a cercare nei data quello che c'è scritto dopo il punto
           if(this.activeSlideIndex >= this.slides.length){
               this.activeSlideIndex = 0;
           }
@@ -49,10 +49,23 @@ createApp({
         },
         changeSlide(index){
         //passare numero dell'immagine
-            console.log(index);
+            //console.log(index);
             this.activeSlideIndex = index ;
 
        },
+       stopAutoplay(){
+        clearInterval(this.autoplayTimer);
+       },
+       stratAutoplay(){
+        this.autoplayTimer = setInterval(this.prevSlide, 3000);
+       },
+       mounted(){
+            // tutto il codice scritto qua dentro verra eseguito
+            //quando la'pplicazione è stata monatata
         
-      },
-  }).mount('#app'); 
+           // this.autoplayTimer = setInterval(this.prevSlide, 3000);
+            this.stratAutoplay();
+        },
+    },
+  }).mount("#app"); 
+

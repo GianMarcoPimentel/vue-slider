@@ -18,13 +18,18 @@
             <div class="container">
 
                 <div class="row">
-                    <div class="col-8" id="carousel">
+                    <div 
+                    class="col-8" 
+                    id="carousel"
+                    @mouseenter = "stopAutoplay"
+                    @mouseesc = "startAutoplay">
 
                         <img v-for="(currentSlide, index) in slides"
                          :src= 'currentSlide.image'
                          :alt="'Immagine ' + (index + 1)"
-                         v-show = "index == activeSlideIndex"
+                         v-show = "index == activeSlideIndex"                        
                          >
+
                          <div class="text">
 
                              <h3 v-for="(actualSlide, index) in slides"
@@ -47,7 +52,7 @@
                         <img v-for="(currentSlide, index) in slides"
                             :src="currentSlide.image" 
                             :alt="'Anteprima ' + (index + 1)"
-                            @click="changeSlide(index ) "
+                            @click="changeSlide(index) "
                             :class = "index == activeSlideIndex ? 'active' : '' "
                         >
                         <div id="arrow-1">
